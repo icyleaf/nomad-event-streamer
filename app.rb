@@ -26,11 +26,24 @@ def parse_env_list(key)
   ENV[key]&.split(",")&.map(&:strip) || []
 end
 
+def send_api_request(http_method, *args)
+  http = HTTP
+
+  if (token = NOMAD_TOKEN)
+    http = http.headers("X-Nomad-Token" => token)
+  end
+
+  http.public_send(http_method, *args)
+end
+
 NOMAD_ADDR = ENV["NOMAD_ADDR"] || "http://localhost:4646"
 NOMAD_API_BASE_URL = "#{NOMAD_ADDR}/v1".freeze
 
 # Specify which namespace to stream events for. Set this to "*" to include all namespaces
 NOMAD_NAMESPACE = ENV["NOMAD_NAMESPACE"].presence
+
+# Specify a token to be used for authentication
+NOMAD_TOKEN = ENV["NOMAD_TOKEN"].presence
 
 # Will automatically exit if number of seconds have elapsed past threshold since last heartbeat
 HEARTBEAT_UNDETECTED_EXIT_THRESHOLD = ENV["HEARTBEAT_UNDETECTED_EXIT_THRESHOLD"].presence&.to_i
@@ -46,8 +59,10 @@ SLACK_WEBHOOK_URL = ENV["SLACK_WEBHOOK_URL"].presence
 TASK_EVENT_TYPE_ALLOWLIST = parse_env_list("TASK_EVENT_TYPE_ALLOWLIST")
 TASK_EVENT_TYPE_DENYLIST = parse_env_list("TASK_EVENT_TYPE_DENYLIST")
 
+TASK_DENYLIST = parse_env_list("TASK_DENYLIST")
+
 # Retrieve last index so we know which events are older
-agent_response = HTTP.get("#{NOMAD_API_BASE_URL}/agent/self")
+agent_response = send_api_request(:get, "#{NOMAD_API_BASE_URL}/agent/self")
 starting_index = JSON.parse(agent_response.body).dig("stats", "raft", "last_log_index")&.to_i
 
 unless starting_index
@@ -67,6 +82,7 @@ task_metadata = Hash.new { |h, k| h[k] = {} }
 event_stream_params = {}
 event_stream_params[:namespace] = NOMAD_NAMESPACE if NOMAD_NAMESPACE
 event_stream_body = HTTP.get("#{NOMAD_API_BASE_URL}/event/stream", params: event_stream_params).body
+event_stream_body = send_api_request(:get, "#{NOMAD_API_BASE_URL}/event/stream", params: event_stream_params).body
 
 ndjson = NDJSON.new
 
@@ -133,6 +149,11 @@ loop do
           task_events = task_state_resource.dig("Events")
 
           puts "#{task_identifier}: #{task_events.size} #{'event'.pluralize(task_events.size)} detected"
+
+          if TASK_DENYLIST.include?(task_identifier)
+            puts "#{task_identifier} task skipped due to denylist"
+            next
+          end
 
           task_events.each do |task_event_resource|
             task_event_type = task_event_resource.dig("Type")
