@@ -60,6 +60,8 @@ SLACK_WEBHOOK_URL = ENV["SLACK_WEBHOOK_URL"].presence
 TASK_EVENT_TYPE_ALLOWLIST = parse_env_list("TASK_EVENT_TYPE_ALLOWLIST")
 TASK_EVENT_TYPE_DENYLIST = parse_env_list("TASK_EVENT_TYPE_DENYLIST")
 
+TASK_DENYLIST = parse_env_list("TASK_DENYLIST")
+
 # Initialize logger
 LOGGER_LEVEL = ENV.fetch("LOGGER_LEVEL", "info").to_sym
 LOGGER = Logger.new(STDOUT, level: LOGGER_LEVEL)
@@ -154,6 +156,12 @@ loop do
 
           LOGGER.info "#{task_identifier}: #{task_events.size} #{'event'.pluralize(task_events.size)} detected"
 
+          found_task_in_denylist = TASK_DENYLIST.select { |q| task_identifier.include?(q) }
+          if found_task_in_denylist.any?
+            LOGGER.warn "#{task_identifier} task skipped due to denylist"
+            next
+          end
+
           task_events.each do |task_event_resource|
             task_event_type = task_event_resource.dig("Type")
 
@@ -241,7 +249,7 @@ loop do
 
               begin
                 HTTP.post(DISCORD_WEBHOOK_URL, json: discord_body)
-              rescue OpenSSL::SSL::SSLError => e
+              rescue StandardError => e
                 LOGGER.error "Sending notification to Discord failed: #{e.message}"
               end
 
@@ -275,7 +283,7 @@ loop do
                     attachments: [attachment],
                   },
                 )
-              rescue OpenSSL::SSL::SSLError => e
+              rescue StandardError => e
                 LOGGER.error "Sending notification to Discord failed: #{e.message}"
               end
 
