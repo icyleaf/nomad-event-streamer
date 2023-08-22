@@ -150,9 +150,11 @@ loop do
 
           puts "#{task_identifier}: #{task_events.size} #{'event'.pluralize(task_events.size)} detected"
 
-          if TASK_DENYLIST.include?(task_identifier)
-            puts "#{task_identifier} task skipped due to denylist"
-            next
+          TASK_DENYLIST.each do |task_name|
+            if task_identifier.include?(task_name)
+              puts "#{task_identifier} task skipped due to denylist"
+              next
+            end
           end
 
           task_events.each do |task_event_resource|
