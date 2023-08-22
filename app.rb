@@ -239,7 +239,11 @@ loop do
 
               LOGGER.debug "Sending notification to Discord: #{subject} with body: #{discord_body}"
 
-              HTTP.post(DISCORD_WEBHOOK_URL, json: discord_body)
+              begin
+                HTTP.post(DISCORD_WEBHOOK_URL, json: discord_body)
+              rescue OpenSSL::SSL::SSLError => e
+                LOGGER.error "Sending notification to Discord failed: #{e.message}"
+              end
 
               delivered_destinations << "Discord"
             end
@@ -265,11 +269,15 @@ loop do
 
               LOGGER.debug "Sending notification to Slack: #{subject} with body: #{attachment}"
 
-              HTTP.post(SLACK_WEBHOOK_URL,
-                json: {
-                  attachments: [attachment],
-                },
-              )
+              begin
+                HTTP.post(SLACK_WEBHOOK_URL,
+                  json: {
+                    attachments: [attachment],
+                  },
+                )
+              rescue OpenSSL::SSL::SSLError => e
+                LOGGER.error "Sending notification to Discord failed: #{e.message}"
+              end
 
               delivered_destinations << "Slack"
             end
