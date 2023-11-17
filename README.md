@@ -6,17 +6,17 @@ Streams HashiCorp Nomad events to your favorite destinations.
 
 ![Discord](assets/discord.png)
 
-### Slack
+### ~~Slack~~
 
 ![Slack](assets/slack.png)
 
 ## Usage
 
-Refer to [app.rb](./app.rb) for supported environment variables. 
+Refer to [config/config.yml](./config/config.yml) for supported environment variables.
 
 ## Docker
 
-Each commit has a [Docker image](https://github.com/axsuul/nomad-event-streamer/pkgs/container/nomad-event-streamer) built for it or use `ghcr.io/axsuul/nomad-event-streamer:latest`.
+Each commit has a [Docker image](https://github.com/icyleaf/nomad-event-streamer/pkgs/container/nomad-event-streamer) built for it or use `ghcr.io/icyleaf/nomad-event-streamer:develop`.
 
 ## Development
 
@@ -73,7 +73,7 @@ job "exit-zero" {
         image = "bash"
         command = "bash"
         args = [
-          "-c", 
+          "-c",
           "sleep 10; exit 0",
         ]
       }

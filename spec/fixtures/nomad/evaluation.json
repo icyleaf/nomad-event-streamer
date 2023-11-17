@@ -1,0 +1,32 @@
+{
+  "Index": 4168233,
+  "Events": [
+    {
+      "Topic": "Evaluation",
+      "Type": "JobRegistered",
+      "Key": "60ac5cd5-de4c-06ce-eabf-cce150b5fc51",
+      "Namespace": "default",
+      "FilterKeys": [
+        "maintenance-nomad-invalid-services-cleaner/periodic-1700122200",
+        ""
+      ],
+      "Index": 4168233,
+      "Payload": {
+        "Evaluation": {
+          "ID": "60ac5cd5-de4c-06ce-eabf-cce150b5fc51",
+          "Namespace": "default",
+          "Priority": 50,
+          "Type": "batch",
+          "TriggeredBy": "periodic-job",
+          "JobID": "maintenance-nomad-invalid-services-cleaner/periodic-1700122200",
+          "JobModifyIndex": 4168233,
+          "Status": "pending",
+          "CreateIndex": 4168233,
+          "ModifyIndex": 4168233,
+          "CreateTime": 1700122200001375962,
+          "ModifyTime": 1700122200001375962
+        }
+      }
+    }
+  ]
+}

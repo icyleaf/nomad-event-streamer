@@ -111,7 +111,10 @@ if HEARTBEAT_UNDETECTED_EXIT_THRESHOLD
 end
 
 loop do
-  parsed_resources_collection = ndjson.parse_partial(event_stream_body.readpartial)
+  stream_body = event_stream_body.readpartial
+  next if stream_body.nil?
+
+  parsed_resources_collection = ndjson.parse_partial(stream_body)
   LOGGER.debug "event_stream_body: #{parsed_resources_collection}"
 
   parsed_resources_collection.each do |parsed_resource|
@@ -137,7 +140,7 @@ loop do
       when "Allocation"
         allocation_resource = event_resource.dig("Payload", "Allocation")
         namespace = allocation_resource.dig("Namespace")
-        node_name = allocation_resource.dig("NodeName")
+        node_name = allocation_resource.dig("`NodeName`")
         job_id = allocation_resource.dig("JobID")
 
         task_state_resources = allocation_resource.dig("TaskStates")
@@ -241,6 +244,8 @@ loop do
               end
 
               discord_body = {
+                "username": "Nomad Notification",
+                "avatar_url": "https://icons-for-free.com/iconfiles/png/512/nomad-1331550891549310611.png",
                 content: subject,
                 embeds: [embed],
               }
@@ -302,5 +307,3 @@ loop do
     end
   end
 end
-
-

@@ -4,7 +4,15 @@ source "https://rubygems.org"
 
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
-gem "activesupport", "5.0.0.1"
-gem "byebug", "11.1.3"
-gem "http", "5.0.4"
-gem "rspec", "3.10.0"
+gem "activesupport", "~> 7.1.2"
+gem "anyway_config", "~> 2.5.4"
+gem "http", "~> 5.1.1"
+gem "faraday", "~> 2.7.11"
+
+group :development do
+  gem "debug", "~> 1.8"
+end
+
+group :development, :test do
+  gem "rspec", "~> 3.12"
+end

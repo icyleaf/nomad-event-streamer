@@ -1,0 +1,847 @@
+{
+  "Index": 4168449,
+  "Events": [
+    {
+      "Topic": "Allocation",
+      "Type": "AllocationUpdated",
+      "Key": "e6d438bb-cb9e-2053-2f12-fef16864d51b",
+      "Namespace": "default",
+      "FilterKeys": [
+        "maintenance-nomad-invalid-services-cleaner/periodic-1700124000",
+        ""
+      ],
+      "Index": 4168449,
+      "Payload": {
+        "Allocation": {
+          "ID": "e6d438bb-cb9e-2053-2f12-fef16864d51b",
+          "Namespace": "default",
+          "EvalID": "c6da4d85-b7ea-1671-c859-49fb8b68cb6c",
+          "Name": "maintenance-nomad-invalid-services-cleaner/periodic-1700124000.nomad-invalid-services-cleaner[0]",
+          "NodeID": "79dddcdf-1a68-2326-de9f-771a0ce99570",
+          "NodeName": "bunker-client-4",
+          "JobID": "maintenance-nomad-invalid-services-cleaner/periodic-1700124000",
+          "TaskGroup": "nomad-invalid-services-cleaner",
+          "Resources": {
+            "CPU": 50,
+            "Cores": 0,
+            "MemoryMB": 50,
+            "MemoryMaxMB": 50,
+            "DiskMB": 300,
+            "IOPS": 0,
+            "Networks": null,
+            "Devices": null
+          },
+          "SharedResources": {
+            "CPU": 0,
+            "Cores": 0,
+            "MemoryMB": 0,
+            "MemoryMaxMB": 0,
+            "DiskMB": 300,
+            "IOPS": 0,
+            "Networks": null,
+            "Devices": null
+          },
+          "TaskResources": {
+            "nomad-invalid-services-cleaner": {
+              "CPU": 50,
+              "Cores": 0,
+              "MemoryMB": 50,
+              "MemoryMaxMB": 0,
+              "DiskMB": 0,
+              "IOPS": 0,
+              "Networks": null,
+              "Devices": null
+            }
+          },
+          "AllocatedResources": {
+            "Tasks": {
+              "nomad-invalid-services-cleaner": {
+                "Cpu": { "CpuShares": 50, "ReservedCores": null },
+                "Memory": { "MemoryMB": 50, "MemoryMaxMB": 0 },
+                "Networks": null,
+                "Devices": null
+              }
+            },
+            "TaskLifecycles": { "nomad-invalid-services-cleaner": null },
+            "Shared": { "Networks": null, "DiskMB": 300, "Ports": null }
+          },
+          "Metrics": {
+            "NodesEvaluated": 5,
+            "NodesFiltered": 0,
+            "NodesInPool": 5,
+            "NodesAvailable": { "bunker": 5 },
+            "ClassFiltered": null,
+            "ConstraintFiltered": null,
+            "NodesExhausted": 3,
+            "ClassExhausted": null,
+            "DimensionExhausted": { "memory": 3 },
+            "QuotaExhausted": null,
+            "ResourcesExhausted": null,
+            "Scores": null,
+            "ScoreMetaData": [
+              {
+                "NodeID": "79dddcdf-1a68-2326-de9f-771a0ce99570",
+                "Scores": {
+                  "node-affinity": 0.0,
+                  "binpack": 0.8662422281527634,
+                  "job-anti-affinity": 0.0,
+                  "node-reschedule-penalty": 0.0
+                },
+                "NormScore": 0.8662422281527634
+              },
+              {
+                "NodeID": "dece47db-fb46-626f-7807-07c683031f80",
+                "Scores": {
+                  "node-reschedule-penalty": 0.0,
+                  "node-affinity": 0.0,
+                  "binpack": 0.7436560999328792,
+                  "job-anti-affinity": 0.0
+                },
+                "NormScore": 0.7436560999328792
+              }
+            ],
+            "AllocationTime": 475638,
+            "CoalescedFailures": 0
+          },
+          "DesiredStatus": "run",
+          "ClientStatus": "complete",
+          "ClientDescription": "All tasks have completed",
+          "TaskStates": {
+            "nomad-invalid-services-cleaner": {
+              "State": "dead",
+              "Failed": false,
+              "Restarts": 0,
+              "LastRestart": null,
+              "StartedAt": "2023-11-16T08:41:33.877135936Z",
+              "FinishedAt": "2023-11-16T08:41:38.918903474Z",
+              "Events": [
+                {
+                  "Type": "Received",
+                  "Time": 1700124002691680680,
+                  "Message": "",
+                  "DisplayMessage": "Task received by client",
+                  "Details": {},
+                  "FailsTask": false,
+                  "RestartReason": "",
+                  "SetupError": "",
+                  "DriverError": "",
+                  "ExitCode": 0,
+                  "Signal": 0,
+                  "KillTimeout": 0,
+                  "KillError": "",
+                  "KillReason": "",
+                  "StartDelay": 0,
+                  "DownloadError": "",
+                  "ValidationError": "",
+                  "DiskLimit": 0,
+                  "FailedSibling": "",
+                  "VaultError": "",
+                  "TaskSignalReason": "",
+                  "TaskSignal": "",
+                  "DriverMessage": "",
+                  "GenericSource": ""
+                },
+                {
+                  "Type": "Task Setup",
+                  "Time": 1700124002996947210,
+                  "Message": "Building Task Directory",
+                  "DisplayMessage": "Building Task Directory",
+                  "Details": { "message": "Building Task Directory" },
+                  "FailsTask": false,
+                  "RestartReason": "",
+                  "SetupError": "",
+                  "DriverError": "",
+                  "ExitCode": 0,
+                  "Signal": 0,
+                  "KillTimeout": 0,
+                  "KillError": "",
+                  "KillReason": "",
+                  "StartDelay": 0,
+                  "DownloadError": "",
+                  "ValidationError": "",
+                  "DiskLimit": 0,
+                  "FailedSibling": "",
+                  "VaultError": "",
+                  "TaskSignalReason": "",
+                  "TaskSignal": "",
+                  "DriverMessage": "",
+                  "GenericSource": ""
+                },
+                {
+                  "Type": "Driver",
+                  "Time": 1700124012746941045,
+                  "Message": "",
+                  "DisplayMessage": "Downloading image",
+                  "Details": {
+                    "image": "ghcr.io/icyleaf/nomad-invalid-services-cleaner:main"
+                  },
+                  "FailsTask": false,
+                  "RestartReason": "",
+                  "SetupError": "",
+                  "DriverError": "",
+                  "ExitCode": 0,
+                  "Signal": 0,
+                  "KillTimeout": 0,
+                  "KillError": "",
+                  "KillReason": "",
+                  "StartDelay": 0,
+                  "DownloadError": "",
+                  "ValidationError": "",
+                  "DiskLimit": 0,
+                  "FailedSibling": "",
+                  "VaultError": "",
+                  "TaskSignalReason": "",
+                  "TaskSignal": "",
+                  "DriverMessage": "Downloading image",
+                  "GenericSource": ""
+                },
+                {
+                  "Type": "Started",
+                  "Time": 1700124093877034080,
+                  "Message": "",
+                  "DisplayMessage": "Task started by client",
+                  "Details": {},
+                  "FailsTask": false,
+                  "RestartReason": "",
+                  "SetupError": "",
+                  "DriverError": "",
+                  "ExitCode": 0,
+                  "Signal": 0,
+                  "KillTimeout": 0,
+                  "KillError": "",
+                  "KillReason": "",
+                  "StartDelay": 0,
+                  "DownloadError": "",
+                  "ValidationError": "",
+                  "DiskLimit": 0,
+                  "FailedSibling": "",
+                  "VaultError": "",
+                  "TaskSignalReason": "",
+                  "TaskSignal": "",
+                  "DriverMessage": "",
+                  "GenericSource": ""
+                },
+                {
+                  "Type": "Terminated",
+                  "Time": 1700124098286838547,
+                  "Message": "",
+                  "DisplayMessage": "Exit Code: 0",
+                  "Details": {
+                    "exit_code": "0",
+                    "signal": "0",
+                    "oom_killed": "false"
+                  },
+                  "FailsTask": false,
+                  "RestartReason": "",
+                  "SetupError": "",
+                  "DriverError": "",
+                  "ExitCode": 0,
+                  "Signal": 0,
+                  "KillTimeout": 0,
+                  "KillError": "",
+                  "KillReason": "",
+                  "StartDelay": 0,
+                  "DownloadError": "",
+                  "ValidationError": "",
+                  "DiskLimit": 0,
+                  "FailedSibling": "",
+                  "VaultError": "",
+                  "TaskSignalReason": "",
+                  "TaskSignal": "",
+                  "DriverMessage": "",
+                  "GenericSource": ""
+                }
+              ],
+              "TaskHandle": null
+            }
+          },
+          "NetworkStatus": { "InterfaceName": "", "Address": "", "DNS": null },
+          "SignedIdentities": {
+            "nomad-invalid-services-cleaner": "eyJhbGciOiJFZERTQSIsImtpZCI6ImYyYmIyZDQ4LTAzNjktNzllZC0wZGEyLWQ1Mjg2ZjE4NTE2NyIsInR5cCI6IkpXVCJ9.eyJub21hZF9uYW1lc3BhY2UiOiJkZWZhdWx0Iiwibm9tYWRfam9iX2lkIjoibWFpbnRlbmFuY2Utbm9tYWQtaW52YWxpZC1zZXJ2aWNlcy1jbGVhbmVyIiwibm9tYWRfYWxsb2NhdGlvbl9pZCI6ImU2ZDQzOGJiLWNiOWUtMjA1My0yZjEyLWZlZjE2ODY0ZDUxYiIsIm5vbWFkX3Rhc2siOiJub21hZC1pbnZhbGlkLXNlcnZpY2VzLWNsZWFuZXIiLCJuYmYiOjE3MDAxMjQwMDAsImlhdCI6MTcwMDEyNDAwMH0.7ItZg6GTzhn3w9Kf7jx3os_kW_HHneMjAaHCrcrJxt4HP9HUlhvj2RYfA4oZulBxbg3-aFyYIbJy2SRABm8lDQ"
+          },
+          "SigningKeyID": "f2bb2d48-0369-79ed-0da2-d5286f185167",
+          "CreateIndex": 4168393,
+          "ModifyIndex": 4168449,
+          "AllocModifyIndex": 4168393,
+          "CreateTime": 1700124000617164494,
+          "ModifyTime": 1700124099748362246
+        }
+      }
+    },
+    {
+      "Topic": "Job",
+      "Type": "AllocationUpdated",
+      "Key": "maintenance-nomad-invalid-services-cleaner/periodic-1700124000",
+      "Namespace": "default",
+      "FilterKeys": null,
+      "Index": 4168449,
+      "Payload": {
+        "Job": {
+          "Stop": false,
+          "Region": "global",
+          "Namespace": "default",
+          "ID": "maintenance-nomad-invalid-services-cleaner/periodic-1700124000",
+          "ParentID": "maintenance-nomad-invalid-services-cleaner",
+          "Name": "maintenance-nomad-invalid-services-cleaner/periodic-1700124000",
+          "Type": "batch",
+          "Priority": 50,
+          "AllAtOnce": false,
+          "Datacenters": ["bunker"],
+          "NodePool": "default",
+          "Constraints": null,
+          "Affinities": null,
+          "Spreads": null,
+          "TaskGroups": [
+            {
+              "Name": "nomad-invalid-services-cleaner",
+              "Count": 1,
+              "Update": null,
+              "Migrate": null,
+              "Constraints": null,
+              "Scaling": null,
+              "RestartPolicy": {
+                "Attempts": 3,
+                "Interval": 86400000000000,
+                "Delay": 15000000000,
+                "Mode": "fail",
+                "RenderTemplates": false
+              },
+              "Tasks": [
+                {
+                  "Name": "nomad-invalid-services-cleaner",
+                  "Driver": "docker",
+                  "User": "",
+                  "Config": {
+                    "image": "ghcr.io/icyleaf/nomad-invalid-services-cleaner:main"
+                  },
+                  "Env": null,
+                  "Services": null,
+                  "Vault": null,
+                  "Templates": [
+                    {
+                      "SourcePath": "",
+                      "DestPath": "secrets/.env",
+                      "EmbeddedTmpl": "ONESHOT         = true\nNOMAD_ENDPOINT  = http://{{ env \"attr.unique.network.ip-address\" }}:4646\n",
+                      "ChangeMode": "restart",
+                      "ChangeSignal": "",
+                      "ChangeScript": null,
+                      "Splay": 5000000000,
+                      "Perms": "0644",
+                      "Uid": null,
+                      "Gid": null,
+                      "LeftDelim": "{{",
+                      "RightDelim": "}}",
+                      "Envvars": true,
+                      "VaultGrace": 0,
+                      "Wait": null,
+                      "ErrMissingKey": false
+                    }
+                  ],
+                  "Constraints": null,
+                  "Affinities": null,
+                  "Resources": {
+                    "CPU": 50,
+                    "Cores": 0,
+                    "MemoryMB": 50,
+                    "MemoryMaxMB": 0,
+                    "DiskMB": 0,
+                    "IOPS": 0,
+                    "Networks": null,
+                    "Devices": null
+                  },
+                  "RestartPolicy": {
+                    "Attempts": 3,
+                    "Interval": 86400000000000,
+                    "Delay": 15000000000,
+                    "Mode": "fail",
+                    "RenderTemplates": false
+                  },
+                  "DispatchPayload": null,
+                  "Lifecycle": null,
+                  "Meta": null,
+                  "KillTimeout": 5000000000,
+                  "LogConfig": {
+                    "MaxFiles": 10,
+                    "MaxFileSizeMB": 10,
+                    "Disabled": false
+                  },
+                  "Artifacts": null,
+                  "Leader": false,
+                  "ShutdownDelay": 0,
+                  "VolumeMounts": null,
+                  "ScalingPolicies": null,
+                  "KillSignal": "",
+                  "Kind": "",
+                  "CSIPluginConfig": null,
+                  "Identity": null
+                }
+              ],
+              "EphemeralDisk": {
+                "Sticky": false,
+                "SizeMB": 300,
+                "Migrate": false
+              },
+              "Meta": null,
+              "ReschedulePolicy": {
+                "Attempts": 1,
+                "Interval": 86400000000000,
+                "Delay": 5000000000,
+                "DelayFunction": "constant",
+                "MaxDelay": 0,
+                "Unlimited": false
+              },
+              "Affinities": null,
+              "Spreads": null,
+              "Networks": null,
+              "Consul": { "Namespace": "" },
+              "Services": null,
+              "Volumes": null,
+              "ShutdownDelay": null,
+              "StopAfterClientDisconnect": null,
+              "MaxClientDisconnect": null
+            }
+          ],
+          "Update": {
+            "Stagger": 0,
+            "MaxParallel": 0,
+            "HealthCheck": "",
+            "MinHealthyTime": 0,
+            "HealthyDeadline": 0,
+            "ProgressDeadline": 0,
+            "AutoRevert": false,
+            "AutoPromote": false,
+            "Canary": 0
+          },
+          "Multiregion": null,
+          "Periodic": null,
+          "ParameterizedJob": null,
+          "Dispatched": false,
+          "DispatchIdempotencyToken": "",
+          "Payload": null,
+          "Meta": null,
+          "ConsulToken": "",
+          "ConsulNamespace": "",
+          "VaultToken": "",
+          "VaultNamespace": "",
+          "NomadTokenID": "",
+          "Status": "dead",
+          "StatusDescription": "",
+          "Stable": false,
+          "Version": 5,
+          "SubmitTime": 1700124000001009725,
+          "CreateIndex": 4168392,
+          "ModifyIndex": 4168449,
+          "JobModifyIndex": 4168392
+        }
+      }
+    },
+    {
+      "Topic": "Node",
+      "Type": "AllocationUpdated",
+      "Key": "79dddcdf-1a68-2326-de9f-771a0ce99570",
+      "Namespace": "",
+      "FilterKeys": null,
+      "Index": 4168449,
+      "Payload": {
+        "Node": {
+          "Attributes": {
+            "kernel.landlock": "v2",
+            "unique.storage.volume": "/dev/sda1",
+            "cpu.frequency": "2903",
+            "consul.server": "true",
+            "memory.totalbytes": "8326369280",
+            "consul.datacenter": "bunker",
+            "plugins.cni.version.firewall": "v1.2.0",
+            "os.signals": "SIGFPE,SIGHUP,SIGSTOP,SIGNULL,SIGABRT,SIGCONT,SIGPIPE,SIGUSR2,SIGKILL,SIGTTIN,SIGUSR1,SIGQUIT,SIGTRAP,SIGTTOU,SIGXCPU,SIGIOT,SIGWINCH,SIGBUS,SIGTERM,SIGTSTP,SIGILL,SIGIO,SIGSEGV,SIGALRM,SIGINT,SIGPROF,SIGSYS,SIGXFSZ",
+            "cpu.numcores": "4",
+            "consul.revision": "4e3f428b",
+            "plugins.cni.version.dhcp": "v1.2.0",
+            "plugins.cni.version.ipvlan": "v1.2.0",
+            "driver.containerd-driver": "1",
+            "plugins.cni.version.bandwidth": "v1.2.0",
+            "plugins.cni.version.host-device": "v1.2.0",
+            "cpu.modelname": "Genuine Intel(R) CPU 0000 @ 2.90GHz",
+            "kernel.version": "6.1.0-13-amd64",
+            "plugins.cni.version.host-local": "v1.2.0",
+            "nomad.revision": "e0497bff14378d68cad76a801cc0eba93ce05039",
+            "unique.storage.bytestotal": "84372418560",
+            "kernel.name": "linux",
+            "driver.docker": "1",
+            "driver.docker.volumes.enabled": "true",
+            "consul.sku": "oss",
+            "plugins.cni.version.ptp": "v1.2.0",
+            "consul.grpc": "8502",
+            "unique.cgroup.mountpoint": "/sys/fs/cgroup",
+            "nomad.service_discovery": "true",
+            "unique.consul.name": "bunker-server-0",
+            "driver.docker.runtimes": "io.containerd.runc.v2,runc",
+            "driver.docker.version": "24.0.7",
+            "unique.hostname": "bunker-worker-4",
+            "cpu.totalcompute": "11612",
+            "plugins.cni.version.bridge": "v1.2.0",
+            "plugins.cni.version.static": "v1.2.0",
+            "driver.exec": "1",
+            "plugins.cni.version.loopback": "v1.2.0",
+            "plugins.cni.version.vlan": "v1.2.0",
+            "nomad.advertise.address": "10.10.10.39:4646",
+            "consul.ft.namespaces": "false",
+            "nomad.bridge.hairpin_mode": "false",
+            "os.name": "debian",
+            "driver.docker.os_type": "linux",
+            "kernel.arch": "x86_64",
+            "plugins.cni.version.macvlan": "v1.2.0",
+            "unique.storage.bytesfree": "68950937600",
+            "plugins.cni.version.portmap": "v1.2.0",
+            "plugins.cni.version.vrf": "v1.2.0",
+            "plugins.cni.version.dummy": "v1.2.0",
+            "driver.docker.privileged.enabled": "true",
+            "driver.containerd.containerd_revision": "61f9fd88f79f081d64d6fa3bb1a0dc71ec870523",
+            "unique.network.ip-address": "10.10.10.39",
+            "os.version": "12.2",
+            "cpu.arch": "amd64",
+            "plugins.cni.version.sbr": "v1.2.0",
+            "plugins.cni.version.tuning": "v1.2.0",
+            "cpu.reservablecores": "4",
+            "driver.raw_exec": "1",
+            "nomad.version": "1.6.3",
+            "consul.version": "1.17.0",
+            "consul.connect": "true",
+            "unique.cgroup.version": "v2",
+            "driver.containerd.containerd_version": "1.6.24",
+            "driver.docker.bridge_ip": "172.17.0.1"
+          },
+          "CSIControllerPlugins": {},
+          "CSINodePlugins": {
+            "rocketduck-csi-plugin-nfs": {
+              "PluginID": "rocketduck-csi-plugin-nfs",
+              "AllocID": "68add6da-ee28-916a-c921-916e3a5e7a6f",
+              "Healthy": true,
+              "HealthDescription": "healthy",
+              "UpdateTime": "2023-10-31T17:07:31.317044962+08:00",
+              "Provider": "dev.rocketduck.csi.nfs",
+              "ProviderVersion": "0.7.0",
+              "RequiresControllerPlugin": true,
+              "RequiresTopologies": false,
+              "ControllerInfo": null,
+              "NodeInfo": {
+                "ID": "bunker-worker-4",
+                "MaxVolumes": 9223372036854775807,
+                "AccessibleTopology": null,
+                "RequiresNodeStageVolume": false,
+                "SupportsStats": false,
+                "SupportsExpand": false,
+                "SupportsCondition": false
+              }
+            },
+            "kubernetes-csi-driver-nfs": {
+              "PluginID": "kubernetes-csi-driver-nfs",
+              "AllocID": "60cc7227-59bb-2c43-d227-18cf4f3db26b",
+              "Healthy": true,
+              "HealthDescription": "healthy",
+              "UpdateTime": "2023-11-10T14:42:16.796567679+08:00",
+              "Provider": "nfs.csi.k8s.io",
+              "ProviderVersion": "v4.5.0",
+              "RequiresControllerPlugin": true,
+              "RequiresTopologies": false,
+              "ControllerInfo": null,
+              "NodeInfo": {
+                "ID": "bunker-worker-4",
+                "MaxVolumes": 9223372036854775807,
+                "AccessibleTopology": null,
+                "RequiresNodeStageVolume": false,
+                "SupportsStats": true,
+                "SupportsExpand": false,
+                "SupportsCondition": false
+              }
+            }
+          },
+          "CgroupParent": "nomad.slice",
+          "ComputedClass": "v1:10554781853500333899",
+          "CreateIndex": 3974926,
+          "Datacenter": "bunker",
+          "Drain": false,
+          "DrainStrategy": null,
+          "Drivers": {
+            "exec": {
+              "Attributes": { "driver.exec": "true" },
+              "Detected": true,
+              "Healthy": true,
+              "HealthDescription": "Healthy",
+              "UpdateTime": "2023-10-31T15:25:38.563387064+08:00"
+            },
+            "qemu": {
+              "Attributes": {},
+              "Detected": false,
+              "Healthy": false,
+              "HealthDescription": "",
+              "UpdateTime": "2023-10-31T15:25:38.563517895+08:00"
+            },
+            "raw_exec": {
+              "Attributes": { "driver.raw_exec": "true" },
+              "Detected": true,
+              "Healthy": true,
+              "HealthDescription": "Healthy",
+              "UpdateTime": "2023-10-31T15:25:38.563724904+08:00"
+            },
+            "docker": {
+              "Attributes": {
+                "driver.docker.bridge_ip": "172.17.0.1",
+                "driver.docker.runtimes": "io.containerd.runc.v2,runc",
+                "driver.docker.os_type": "linux",
+                "driver.docker": "true",
+                "driver.docker.version": "24.0.7",
+                "driver.docker.privileged.enabled": "true",
+                "driver.docker.volumes.enabled": "true"
+              },
+              "Detected": true,
+              "Healthy": true,
+              "HealthDescription": "Healthy",
+              "UpdateTime": "2023-10-31T15:32:34.305327474+08:00"
+            },
+            "containerd-driver": {
+              "Attributes": {
+                "driver.containerd.containerd_revision": "61f9fd88f79f081d64d6fa3bb1a0dc71ec870523",
+                "driver.containerd.containerd_version": "1.6.24"
+              },
+              "Detected": true,
+              "Healthy": true,
+              "HealthDescription": "Healthy",
+              "UpdateTime": "2023-10-31T15:25:39.614095453+08:00"
+            },
+            "java": {
+              "Attributes": {},
+              "Detected": false,
+              "Healthy": false,
+              "HealthDescription": "",
+              "UpdateTime": "2023-10-31T15:25:38.563174058+08:00"
+            }
+          },
+          "Events": [
+            {
+              "Message": "Unmount volume",
+              "Subsystem": "Storage",
+              "Details": { "success": "true", "volume_id": "pve-media" },
+              "Timestamp": "2023-11-11T15:03:53.412813734+08:00",
+              "CreateIndex": 4119813
+            },
+            {
+              "Message": "Mount volume",
+              "Subsystem": "Storage",
+              "Details": { "success": "true", "volume_id": "pve-books" },
+              "Timestamp": "2023-11-14T16:42:51.882297368+08:00",
+              "CreateIndex": 4148747
+            },
+            {
+              "Message": "Mount volume",
+              "Subsystem": "Storage",
+              "Details": { "success": "true", "volume_id": "calibre-config" },
+              "Timestamp": "2023-11-14T16:42:51.936519519+08:00",
+              "CreateIndex": 4148747
+            },
+            {
+              "Message": "Unmount volume",
+              "Subsystem": "Storage",
+              "Details": { "success": "true", "volume_id": "calibre-config" },
+              "Timestamp": "2023-11-14T20:54:48.903027289+08:00",
+              "CreateIndex": 4150408
+            },
+            {
+              "Message": "Unmount volume",
+              "Subsystem": "Storage",
+              "Details": { "success": "true", "volume_id": "pve-books" },
+              "Timestamp": "2023-11-14T20:54:49.912587412+08:00",
+              "CreateIndex": 4150408
+            },
+            {
+              "Message": "Mount volume",
+              "Subsystem": "Storage",
+              "Details": { "volume_id": "pve-books", "success": "true" },
+              "Timestamp": "2023-11-15T21:20:59.017935953+08:00",
+              "CreateIndex": 4160259
+            },
+            {
+              "Message": "Mount volume",
+              "Subsystem": "Storage",
+              "Details": { "volume_id": "calibre-config", "success": "true" },
+              "Timestamp": "2023-11-15T21:21:04.311357765+08:00",
+              "CreateIndex": 4160259
+            },
+            {
+              "Message": "Unmount volume",
+              "Subsystem": "Storage",
+              "Details": { "success": "true", "volume_id": "calibre-config" },
+              "Timestamp": "2023-11-15T21:38:37.849259849+08:00",
+              "CreateIndex": 4160523
+            },
+            {
+              "Message": "Unmount volume",
+              "Subsystem": "Storage",
+              "Details": { "success": "true", "volume_id": "pve-books" },
+              "Timestamp": "2023-11-15T21:38:37.93139698+08:00",
+              "CreateIndex": 4160523
+            },
+            {
+              "Message": "Mount volume",
+              "Subsystem": "Storage",
+              "Details": { "success": "true", "volume_id": "grafana-data" },
+              "Timestamp": "2023-11-15T21:44:35.220337055+08:00",
+              "CreateIndex": 4160707
+            }
+          ],
+          "HTTPAddr": "10.10.10.39:4646",
+          "HostNetworks": null,
+          "HostVolumes": null,
+          "ID": "79dddcdf-1a68-2326-de9f-771a0ce99570",
+          "LastAllocUpdateIndex": 4168449,
+          "LastDrain": null,
+          "LastMissedHeartbeatIndex": 0,
+          "Links": { "consul": "bunker.bunker-server-0" },
+          "Meta": {
+            "connect.proxy_concurrency": "1",
+            "gpu": "igpu",
+            "connect.sidecar_image": "docker.io/envoyproxy/envoy:v${NOMAD_envoy_version}",
+            "connect.gateway_image": "docker.io/envoyproxy/envoy:v${NOMAD_envoy_version}",
+            "connect.log_level": "info"
+          },
+          "ModifyIndex": 4109433,
+          "Name": "bunker-client-4",
+          "NodeClass": "",
+          "NodePool": "default",
+          "NodeResources": {
+            "Cpu": {
+              "CpuShares": 11612,
+              "TotalCpuCores": 4,
+              "ReservableCpuCores": [0, 1, 2, 3]
+            },
+            "Memory": { "MemoryMB": 7940 },
+            "Disk": { "DiskMB": 65756 },
+            "Devices": null,
+            "NodeNetworks": [
+              {
+                "Mode": "bridge",
+                "Device": "",
+                "MacAddress": "",
+                "Speed": 0,
+                "Addresses": null
+              },
+              {
+                "Mode": "host",
+                "Device": "eth0",
+                "MacAddress": "d6:d2:72:8a:42:cc",
+                "Speed": 1000,
+                "Addresses": [
+                  {
+                    "Family": "ipv4",
+                    "Alias": "default",
+                    "Address": "10.10.10.39",
+                    "ReservedPorts": "",
+                    "Gateway": ""
+                  },
+                  {
+                    "Family": "ipv6",
+                    "Alias": "default",
+                    "Address": "fd52:b70d:cae9:4076:d4d2:72ff:fe8a:42cc",
+                    "ReservedPorts": "",
+                    "Gateway": ""
+                  }
+                ]
+              }
+            ],
+            "Networks": [
+              {
+                "Mode": "bridge",
+                "Device": "",
+                "CIDR": "",
+                "IP": "",
+                "Hostname": "",
+                "MBits": 0,
+                "DNS": null,
+                "ReservedPorts": null,
+                "DynamicPorts": null
+              },
+              {
+                "Mode": "host",
+                "Device": "eth0",
+                "CIDR": "10.10.10.39/32",
+                "IP": "10.10.10.39",
+                "Hostname": "",
+                "MBits": 1000,
+                "DNS": null,
+                "ReservedPorts": null,
+                "DynamicPorts": null
+              },
+              {
+                "Mode": "host",
+                "Device": "eth0",
+                "CIDR": "fd52:b70d:cae9:4076:d4d2:72ff:fe8a:42cc/128",
+                "IP": "fd52:b70d:cae9:4076:d4d2:72ff:fe8a:42cc",
+                "Hostname": "",
+                "MBits": 1000,
+                "DNS": null,
+                "ReservedPorts": null,
+                "DynamicPorts": null
+              }
+            ],
+            "MinDynamicPort": 20000,
+            "MaxDynamicPort": 32000
+          },
+          "Reserved": {
+            "CPU": 0,
+            "Cores": 0,
+            "MemoryMB": 0,
+            "MemoryMaxMB": 0,
+            "DiskMB": 0,
+            "IOPS": 0,
+            "Networks": null,
+            "Devices": null
+          },
+          "ReservedResources": {
+            "Cpu": { "CpuShares": 0, "ReservedCpuCores": null },
+            "Memory": { "MemoryMB": 0 },
+            "Disk": { "DiskMB": 0 },
+            "Networks": { "ReservedHostPorts": "" }
+          },
+          "Resources": {
+            "CPU": 11612,
+            "Cores": 0,
+            "MemoryMB": 7940,
+            "MemoryMaxMB": 0,
+            "DiskMB": 65756,
+            "IOPS": 0,
+            "Networks": [
+              {
+                "Mode": "host",
+                "Device": "eth0",
+                "CIDR": "10.10.10.39/32",
+                "IP": "10.10.10.39",
+                "Hostname": "",
+                "MBits": 1000,
+                "DNS": null,
+                "ReservedPorts": null,
+                "DynamicPorts": null
+              },
+              {
+                "Mode": "host",
+                "Device": "eth0",
+                "CIDR": "fd52:b70d:cae9:4076:d4d2:72ff:fe8a:42cc/128",
+                "IP": "fd52:b70d:cae9:4076:d4d2:72ff:fe8a:42cc",
+                "Hostname": "",
+                "MBits": 1000,
+                "DNS": null,
+                "ReservedPorts": null,
+                "DynamicPorts": null
+              }
+            ],
+            "Devices": null
+          },
+          "SchedulingEligibility": "eligible",
+          "SecretID": "",
+          "Status": "ready",
+          "StatusDescription": "",
+          "StatusUpdatedAt": 1699598543,
+          "TLSEnabled": false
+        }
+      }
+    }
+  ]
+}

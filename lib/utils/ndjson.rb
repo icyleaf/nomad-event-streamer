@@ -3,6 +3,10 @@ require "active_support/core_ext"
 require "json"
 
 class NDJSON
+  def self.parse(partial)
+    new.parse_partial(partial)
+  end
+
   def initialize
     @previous_part = ""
   end
@@ -11,7 +15,7 @@ class NDJSON
     wholes = []
 
     # We know the JSON begins and ends based on new lines cause it's NDJSON format
-    parts = partial.split("\n", -1)
+    parts = partial.split("\n", -1).reject(&:empty?)
 
     parts.each_with_index do |part, index|
       unless index.zero?
@@ -26,9 +30,8 @@ class NDJSON
     wholes
       .map do |whole|
         JSON.parse(whole)
-
-      # Could be incomplete JSON cause it was the tail or head
       rescue JSON::ParserError
+        # Could be incomplete JSON cause it was the tail or head
         nil
       end
       .compact

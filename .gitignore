@@ -1,2 +1,11 @@
 .byebug_history
 .DS_Store
+
+config/*.local.yml
+
+cache/*
+!cache/.gitkeep
+
+logs/
+
+

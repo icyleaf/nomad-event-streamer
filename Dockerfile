@@ -1,17 +1,13 @@
-FROM ruby:3.0.2
+FROM ruby:3.2
 
-MAINTAINER James Hu <hello@james.hu>
+ENV APP_PATH /app
+WORKDIR $APP_PATH
 
-ENV SCRIPT_ROOT /srv
-RUN mkdir -p $SCRIPT_ROOT
-
-WORKDIR $SCRIPT_ROOT
-
-COPY Gemfile $RAILS_ROOT
-COPY Gemfile.lock $RAILS_ROOT
+COPY Gemfile $APP_PATH
+COPY Gemfile.lock $APP_PATH
 
 RUN bundle install
 
-COPY . $RAILS_ROOT
+COPY . $APP_PATH
 
-CMD bundle exec ruby app.rb
+CMD bundle exec ruby main.rb
