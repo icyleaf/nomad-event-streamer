@@ -4,6 +4,29 @@ require_relative "./base"
 
 module NomadEventStreamer
   class Event
+    module Type
+      TaskSetup                  = "Task Setup"
+      TaskSetupFailure           = "Setup Failure"
+      TaskDriverFailure          = "Driver Failure"
+      TaskDriverMessage          = "Driver"
+      TaskReceived               = "Received"
+      TaskFailedValidation       = "Failed Validation"
+      TaskStarted                = "Started"
+      TaskTerminated             = "Terminated"
+      TaskKilling                = "Killing"
+      TaskKilled                 = "Killed"
+      TaskRestarting             = "Restarting"
+      TaskNotRestarting          = "Not Restarting"
+      TaskDownloadingArtifacts   = "Downloading Artifacts"
+      TaskArtifactDownloadFailed = "Failed Artifact Download"
+      TaskSiblingFailed          = "Sibling Task Failed"
+      TaskSignaling              = "Signaling"
+      TaskRestartSignal          = "Restart Signaled"
+      TaskLeaderDead             = "Leader Task Dead"
+      TaskBuildingTaskDir        = "Building Task Directory"
+      TaskClientReconnected      = "Reconnected"
+    end
+
     class Topic
       class Allocation < Base
         def topic
@@ -90,29 +113,6 @@ module NomadEventStreamer
           end
 
           class Event
-            module Type
-              TaskSetup                  = "Task Setup"
-              TaskSetupFailure           = "Setup Failure"
-              TaskDriverFailure          = "Driver Failure"
-              TaskDriverMessage          = "Driver"
-              TaskReceived               = "Received"
-              TaskFailedValidation       = "Failed Validation"
-              TaskStarted                = "Started"
-              TaskTerminated             = "Terminated"
-              TaskKilling                = "Killing"
-              TaskKilled                 = "Killed"
-              TaskRestarting             = "Restarting"
-              TaskNotRestarting          = "Not Restarting"
-              TaskDownloadingArtifacts   = "Downloading Artifacts"
-              TaskArtifactDownloadFailed = "Failed Artifact Download"
-              TaskSiblingFailed          = "Sibling Task Failed"
-              TaskSignaling              = "Signaling"
-              TaskRestartSignal          = "Restart Signaled"
-              TaskLeaderDead             = "Leader Task Dead"
-              TaskBuildingTaskDir        = "Building Task Directory"
-              TaskClientReconnected      = "Reconnected"
-            end
-
             attr_reader :type, :time, :display_message, :details
 
             def self.parse(body)

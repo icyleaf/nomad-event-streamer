@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "active_support/deprecation"
 require "active_support/cache"
 require "forwardable"
 
@@ -49,12 +50,6 @@ module NomadEventStreamer
 
     def []=(key, value, **options)
       @store.write(key, value, **options)
-    end
-
-    def to_h
-      ALLOWED_KEYS.each_with_object({}) do |key, obj|
-        obj[key] = @cache.read(key)
-      end
     end
 
     def method_missing(method_name, *kwargs)

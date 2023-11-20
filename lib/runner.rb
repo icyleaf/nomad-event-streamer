@@ -1,13 +1,12 @@
 # frozen_string_literal: true
 
 require_relative "./version"
-require_relative "./notification"
 require_relative "./config"
 require_relative "./cache"
 require_relative "./nomad"
 require_relative "./event"
-
 require_relative "./event/concerns/allocation"
+require_relative "./notification"
 
 module NomadEventStreamer
   class Runner
@@ -51,8 +50,6 @@ module NomadEventStreamer
 
         full_chunk = build_chunk(chunk, chunk_store)
         next unless full_chunk
-
-        # binding.break
 
         chunk_store.clear
         event_resource = parse_chunk(full_chunk)
@@ -98,8 +95,20 @@ module NomadEventStreamer
         method_name = "handle_#{event.topic}".to_sym
         next unless self.respond_to?(method_name)
 
-        logger.debug "Go to ##{method_name} method"
         send(method_name, event)
+      end
+    end
+
+    def send_notification(topic, entry)
+      @config.notification.each do |type, options|
+        next unless NomadEventStreamer::Notification.exists?(type)
+
+        logger.debug "Notification to send #{type}"
+        new_options = options.merge(
+          cache: @cache,
+          config: @config
+        )
+        NomadEventStreamer::Notification.send(type, topic, entry, **new_options)
       end
     end
 

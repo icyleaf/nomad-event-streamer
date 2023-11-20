@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
-gem "activesupport", "~> 7.1.2"
+gem "activesupport", "~> 7.0.8"
 gem "anyway_config", "~> 2.5.4"
 gem "http", "~> 5.1.1"
 gem "faraday", "~> 2.7.11"
