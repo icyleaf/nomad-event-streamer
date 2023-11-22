@@ -19,6 +19,8 @@ module NomadEventStreamer
         unless response.status.success?
           logger.error "[#{self.class.name}] unexpected HTTP status #{response.code}: #{response.body}"
         end
+      rescue => e
+        logger.error "[#{self.class.name}] unexpected HTTP error: #{e}"
       end
 
       def client

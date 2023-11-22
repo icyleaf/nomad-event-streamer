@@ -63,6 +63,9 @@ module NomadEventStreamer
 
         handle_event(event)
       end
+    rescue => e
+      logger.error "unexpected HTTP error: #{e}"
+      retry
     end
 
     def build_chunk(chunk, target_store)
