@@ -132,7 +132,11 @@ module NomadEventStreamer
 
     # Ignore older events
     def previous_event?(event)
-      logger.info "Ignore older events"
+      events = event.events.map do |e|
+        "#{e.topic}.#{e.type}.#{e.job_id}"
+      end
+
+      logger.info "Ignore older events: #{events.join(" / ")}"
       @starting_index >= event.id
     end
 
