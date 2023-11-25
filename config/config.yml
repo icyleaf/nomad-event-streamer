@@ -1,4 +1,0 @@
-nomad_addr: http://127.0.0.1:4646
-notification:
-  discord:
-    webhook: https://discord.com/api/webhooks/1234567890

@@ -1,0 +1,17 @@
+nomad_addr: http://127.0.0.1:4646
+nomad_namespace: '*'
+nomad_task_denylist:
+  - maintenance
+nomad_event_type_denylist:
+  - Started
+nomad_event_type_allowlist:
+  - Restarting
+notification:
+  discord:
+    webhook: https://discord.com/api/webhooks/1234567890
+    username: nomad-bot
+    avatar_url: https://icons-for-free.com/iconfiles/png/512/nomad-1331550891549310611.png
+  slack:
+    webhook: https://hooks.slack.com/services/app/key/token
+    username: nomad-bot
+    avatar_url: https://icons-for-free.com/iconfiles/png/512/nomad-1331550891549310611.png

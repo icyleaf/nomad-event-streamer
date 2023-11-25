@@ -6,13 +6,13 @@ Streams HashiCorp Nomad events to your favorite destinations.
 
 ![Discord](assets/discord.png)
 
-### ~~Slack~~
+### Slack
 
 ![Slack](assets/slack.png)
 
 ## Usage
 
-Refer to [config/config.yml](./config/config.yml) for supported environment variables.
+Refer to [config/config.example.yml](./config/config.example.yml) for supported environment variables.
 
 ## Docker
 
