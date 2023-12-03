@@ -17,7 +17,7 @@ module NomadEventStreamer
     end
 
     def initialize
-      Anyway::Settings.default_config_path = File.expand_path("../../config", __FILE__)
+      setup_setting_path!
 
       @config = Config.new
       @cache = Cache.new(@config.cache_identifier, "cache", logger: @config.logger)
@@ -79,7 +79,7 @@ module NomadEventStreamer
       end
 
       if partial_json_data?(chunk_parts)
-        logger.debug "Detect parts chunk of event struct json body, comboining chunks"
+        logger.debug "Detect parts chunk of event struct json body, comboining chunks", index: target_store.size
         target_store << chunk if target_store.empty?
         return false
       end
@@ -158,6 +158,11 @@ module NomadEventStreamer
 
     def logger
       @logger ||= @config.logger
+    end
+
+    def setup_setting_path!
+      config_path = ENV['CONFIG_FILE'] || File.expand_path("../../config", __FILE__)
+      Anyway::Settings.default_config_path = config_path
     end
   end
 end
