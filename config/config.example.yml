@@ -6,6 +6,22 @@ nomad_event_type_denylist:
   - Started
 nomad_event_type_allowlist:
   - Restarting
+
+nomad:
+  addr:
+  namespace:
+  denylist:
+    task: []
+    event_type: []
+  allowlist:
+    event_type: []
+
+logger:
+  # level avaiables: info/error/debug
+  level: info
+  # formatter avaiables: default/json/logfmt/fluentd/one_line
+  formatter: default
+
 notification:
   discord:
     webhook: https://discord.com/api/webhooks/1234567890

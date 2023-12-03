@@ -53,7 +53,7 @@ module NomadEventStreamer
         embed = {
           title: "**#{event.job}**",
           description: task_event.display_message,
-          url: "#{@config.nomad_addr}/ui/jobs/#{CGI.escape(event.job)}",
+          url: "#{@config.nomad["addr"]}/ui/jobs/#{CGI.escape(event.job)}",
           color: embed_color(task_event),
           footer: {
             text: event.started_at ? "⌛️ Started at #{event.started_at}" : ""

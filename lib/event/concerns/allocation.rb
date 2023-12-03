@@ -14,7 +14,7 @@ module NomadEventStreamer
           task_identifier = "#{event.job_id}.#{task.name}"
 
           if @config.task_denylist?(task_identifier)
-            logger.warn "#{task_identifier} task skipped due to denylist"
+            logger.warn "#{task_identifier} task skipped due to denylist", task_identifier: task_identifier
             next
           end
 
@@ -28,17 +28,17 @@ module NomadEventStreamer
             end
 
             if !latest_timestamp_cached.nil? && task_event.time <= latest_timestamp_cached
-              logger.warn "#{task_identifier}: \"#{task_event.type}\" event skipped due to being older"
+              logger.warn "#{task_identifier}: \"#{task_event.type}\" event skipped due to being older", task_identifier: task_identifier
               next
             end
 
             if @config.task_event_denylist?(task_event.type)
-              logger.warn "#{task_identifier}: \"#{task_event.type}\" event skipped due to denylist"
+              logger.warn "#{task_identifier}: \"#{task_event.type}\" event skipped due to denylist", task_identifier: task_identifier
               next
             end
 
             if @config.task_event_allowlist?(task_event.type)
-              logger.warn "#{task_identifier}: \"#{task_event.type}\" event skipped due to allowlist"
+              logger.warn "#{task_identifier}: \"#{task_event.type}\" event skipped due to allowlist", task_identifier: task_identifier
               next
             end
 

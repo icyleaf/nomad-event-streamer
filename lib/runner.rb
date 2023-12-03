@@ -27,18 +27,20 @@ module NomadEventStreamer
       print_banner
       get_last_log_index
       watching_events
+    rescue Interrupt => e
+      logger.info "Exiting by Ctrl+C"
     end
 
     private
 
     def print_banner
-      logger.info "Nomad Event Streamer v#{NomadEventStreamer::VERSION} is running ..."
+      logger.info "Nomad Event Streamer is running ...", version: NomadEventStreamer::VERSION
     end
 
     def watching_events
       params = {
-        namespace: @config.nomad_namespace,
-        topic: @config.nomad_event_topic
+        namespace: @config.nomad["namespace"],
+        topic: @config.nomad["event_topic"]
       }.compact
 
       body = client.streaming_events(params: params).body
@@ -63,8 +65,8 @@ module NomadEventStreamer
 
         handle_event(event)
       end
-    rescue => e
-      logger.error "unexpected HTTP error: #{e}"
+    rescue => exception
+      logger.error "unexpected HTTP error", exception: exception
       retry
     end
 
@@ -124,7 +126,7 @@ module NomadEventStreamer
     # end
 
     def parse_chunk(chunk)
-      logger.debug "event_stream_body: `#{chunk}`"
+      logger.debug "Receving chunk of body", body: chunk
       JSON.parse(chunk)
     rescue JSON::ParserError
       false
@@ -136,7 +138,7 @@ module NomadEventStreamer
         "#{e.topic}.#{e.type}.#{e.job_id}"
       end
 
-      logger.info "Ignore older events: #{events.join(" / ")}"
+      logger.info "Ignore older events", events: events.join(", ")
       @starting_index >= event.id
     end
 

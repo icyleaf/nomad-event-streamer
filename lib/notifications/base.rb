@@ -17,10 +17,11 @@ module NomadEventStreamer
       def request_webhook(webhook_url, payload)
         response = client.post(webhook_url, json: payload)
         unless response.status.success?
-          logger.error "[#{self.class.name}] unexpected HTTP status #{response.code}: #{response.body}"
+          message = "[#{self.class.name}] unexpected HTTP status #{response.code}: #{response.body}"
+          logger.error message, status_code: response.code, body: response.body
         end
       rescue => e
-        logger.error "[#{self.class.name}] unexpected HTTP error: #{e}"
+        logger.error "[#{self.class.name}] unexpected HTTP error", exception: e
       end
 
       def client

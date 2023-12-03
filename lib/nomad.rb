@@ -7,9 +7,9 @@ module NomadEventStreamer
     def initialize(config)
       @config = config
 
-      @endpoint = config.nomad_addr
-      @token = config.nomad_token
-      @version = config.nomad_version
+      @endpoint = config.nomad["addr"]
+      @token = config.nomad["token"]
+      @version = config.nomad["version"]
     end
 
     def agent_self

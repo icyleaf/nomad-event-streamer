@@ -52,7 +52,7 @@ module NomadEventStreamer
             type: "section",
             text: {
               type: "mrkdwn",
-              text: "*#{task_event.type}*\n<#{@config.nomad_addr}/ui/jobs/#{CGI.escape(event.job)}|#{event.job}> \n #{task_event.display_message}"
+              text: "*#{task_event.type}*\n<#{@config.nomad["addr"]}/ui/jobs/#{CGI.escape(event.job)}|#{event.job}> \n #{task_event.display_message}"
             }
           },
           {
